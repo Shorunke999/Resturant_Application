@@ -14,6 +14,7 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',[HomeController::class , 'index']);
+Route::get('/admin',[HomeController::class , 'testadminPage']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
