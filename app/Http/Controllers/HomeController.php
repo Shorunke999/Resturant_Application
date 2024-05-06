@@ -19,6 +19,6 @@ class HomeController extends Controller
         }
     }
     public function testadminPage(){
-        return view('adminhome');
+        return view('admin.adminhome');
     }
 }

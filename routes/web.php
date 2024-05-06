@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,8 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/',[HomeController::class , 'index']);
-Route::get('/admin',[HomeController::class , 'testadminPage']);
+Route::get('/users',[AdminController::class , 'user']);
+Route::get('/admin_page',[HomeController::class ,'testadminPage']);
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
