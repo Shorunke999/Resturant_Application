@@ -12,7 +12,7 @@
 
     <title>Klassy Cafe - Restaurant HTML Template</title>
 <!--
-    
+
 TemplateMo 558 Klassy Cafe
 
 https://templatemo.com/tm-558-klassy-cafe
@@ -30,9 +30,9 @@ https://templatemo.com/tm-558-klassy-cafe
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
     </head>
-    
+
     <body>
-    
+
     <!-- ***** Preloader Start ***** -->
     <div id="preloader">
         <div class="jumper">
@@ -40,10 +40,10 @@ https://templatemo.com/tm-558-klassy-cafe
             <div></div>
             <div></div>
         </div>
-    </div>  
+    </div>
     <!-- ***** Preloader End ***** -->
-    
-    
+
+
     <!-- ***** Header Area Start ***** -->
     <header class="header-area header-sticky">
         <div class="container">
@@ -59,8 +59,8 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
-                           	
-                        <!-- 
+
+                        <!--
                             <li class="submenu">
                                 <a href="javascript:;">Drop Down</a>
                                 <ul>
@@ -71,7 +71,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             </li>
                         -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
-                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li> 
+                            <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">Features</a>
                                 <ul>
@@ -82,7 +82,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
                             <li>
                                 @if (Route::has('login'))
                                     <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
@@ -90,12 +90,12 @@ https://templatemo.com/tm-558-klassy-cafe
                                         <li>
                                             <x-app-layout>
 
-                                            </x-app-layout>                                            
+                                            </x-app-layout>
                                         </li>
                                         @else
                                         <li>
                                             <a href="{{ route('login') }}" class="font-semibold
-                                             text-gray-600 hover:text-gray-900 focus:outline 
+                                             text-gray-600 hover:text-gray-900 focus:outline
                                              focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
                                         </li>
                                             @if (Route::has('register'))
@@ -109,7 +109,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                     </div>
                                 @endif
                             </li>
-                        </ul>        
+                        </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
                         </a>
@@ -206,96 +206,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <!-- ***** About Area Ends ***** -->
 
     <!-- ***** Menu Area Starts ***** -->
-    <section class="section" id="menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="section-heading">
-                        <h6>Our Menu</h6>
-                        <h2>Our selection of cakes with quality taste</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="menu-item-carousel">
-            <div class="col-lg-12">
-                <div class="owl-menu-item owl-carousel">
-                    <div class="item">
-                        <div class='card card1'>
-                            <div class="price"><h6>$14</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Chocolate Cake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card2'>
-                            <div class="price"><h6>$22</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassy Pancake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-                            <div class="price"><h6>$18</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Tall Klassy Bread</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card4'>
-                            <div class="price"><h6>$10</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Blueberry CheeseCake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card5'>
-                            <div class="price"><h6>$8.50</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassy Cup Cake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class='card card3'>
-                            <div class="price"><h6>$7.25</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>Klassic Cake</h1>
-                              <p class='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sedii do eiusmod teme.</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+     @include("menu");
     <!-- ***** Menu Area Ends ***** -->
 
     <!-- ***** Chefs Area Starts ***** -->
@@ -437,14 +348,14 @@ https://templatemo.com/tm-558-klassy-cafe
                               </fieldset>
                             </div>
                             <div class="col-lg-6">
-                                <div id="filterDate2">    
+                                <div id="filterDate2">
                                   <div class="input-group date" data-date-format="dd/mm/yyyy">
                                     <input  name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
                                     <div class="input-group-addon" >
                                       <span class="glyphicon glyphicon-th"></span>
                                     </div>
                                   </div>
-                                </div>   
+                                </div>
                             </div>
                             <div class="col-md-6 col-sm-12">
                               <fieldset>
@@ -579,7 +490,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                             </div>
                                         </div>
                                     </div>
-                                </article>  
+                                </article>
                                 <article id='tabs-2'>
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -655,7 +566,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                             </div>
                                         </div>
                                     </div>
-                                </article>  
+                                </article>
                                 <article id='tabs-3'>
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -731,7 +642,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                             </div>
                                         </div>
                                     </div>
-                                </article>   
+                                </article>
                             </section>
                         </div>
                     </div>
@@ -739,8 +650,8 @@ https://templatemo.com/tm-558-klassy-cafe
             </div>
         </div>
     </section>
-    <!-- ***** Chefs Area Ends ***** --> 
-    
+    <!-- ***** Chefs Area Ends ***** -->
+
     <!-- ***** Footer Start ***** -->
     <footer>
         <div class="container">
@@ -763,7 +674,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <div class="col-lg-4 col-xs-12">
                     <div class="left-text-content">
                         <p>© Copyright Klassy Cafe Co.
-                        
+
                         <br>Design: TemplateMo</p>
                     </div>
                 </div>
@@ -785,11 +696,11 @@ https://templatemo.com/tm-558-klassy-cafe
     <script src="assets/js/scrollreveal.min.js"></script>
     <script src="assets/js/waypoints.min.js"></script>
     <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script> 
-    <script src="assets/js/slick.js"></script> 
-    <script src="assets/js/lightbox.js"></script> 
-    <script src="assets/js/isotope.js"></script> 
-    
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/slick.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/isotope.js"></script>
+
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
     <script>
@@ -804,7 +715,7 @@ https://templatemo.com/tm-558-klassy-cafe
               $("."+selectedClass).fadeIn();
               $("#portfolio").fadeTo(50, 1);
             }, 500);
-                
+
             });
         });
 

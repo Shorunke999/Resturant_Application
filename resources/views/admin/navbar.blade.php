@@ -1,5 +1,4 @@
-<div class="container-scroller">
-    <div class="row p-0 m-0 proBanner" id="proBanner">
+ <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
           <div class="ps-lg-3">
@@ -191,9 +190,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-title">Foods</span>
-              <i class="menu-arrow"></i>
+            <a class="nav-link" href="{{url('/foodmenu')}}" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">FoodMenu</span>
               <i class="mdi mdi-crosshairs-gps menu-icon"></i>
             </a>
           </li>
@@ -212,5 +210,5 @@
         </ul>
       </nav>
     </div>
+
     <!-- page-body-wrapper ends -->
-  </div>

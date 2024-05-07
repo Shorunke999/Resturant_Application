@@ -15,7 +15,14 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/',[HomeController::class , 'index']);
+//display users in db to admin page
 Route::get('/users',[AdminController::class , 'user']);
+//delete user
+Route::get('/delete/{id}',[AdminController::class , 'delete']);
+
+//foodmenu route
+Route::get('/foodmenu',[AdminController::class , 'foodmenu']);
+//admin page display
 Route::get('/admin_page',[HomeController::class ,'testadminPage']);
 Route::middleware([
     'auth:sanctum',
