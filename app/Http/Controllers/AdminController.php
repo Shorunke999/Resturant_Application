@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -19,21 +20,31 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back();
     }
-    public function foodmenu(){
-        return view('admin.foodmenu');
+    public function  logout(){
+        $admin = auth()->user();
+        $admin->logout;
+        return redirect()->route('home');
     }
+
+    public function foodmenu(){
+        $data = Food::all();
+        return view('admin.foodmenu',compact('data'));
+    }
+    public function delete_menu($id){
+        $data = Food::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
     public function upload(Request $request){
-        $request->validate([
-          'image' =>'required|mimes:jpg,jpeg,png|max:2048'
-        ]);
-        $image = $request->image;
-        $imagepath = 'foodmenu/images/'.$image;
-       Storage::disk('public')->put($imagepath,$image);
+        $image = $request->file('image');
+        $imagename = time().'.'.'_'.$image->getClientOriginalName();
+        Storage::disk('public')->put('/foodmenu/images/'.$imagename,File::get($image));
        Food::create([
             'title'=>$request->title,
             'description' => $request->description,
             'price' =>$request->price,
-            'image' => $imagepath
+            'image' => $imagename
         ]);
         return redirect()->back();
     }

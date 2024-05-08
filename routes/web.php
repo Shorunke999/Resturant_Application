@@ -14,17 +14,21 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/',[HomeController::class , 'index']);
+Route::get('/',[HomeController::class , 'index'])->name('home');
 
 //display users in db to admin page
 Route::get('/users',[AdminController::class , 'user']);
 
 //delete user
 Route::get('/delete/{id}',[AdminController::class , 'delete']);
+//log admin out
+Route::get('/logout',[AdminController::class, 'logout']);
 
 //foodmenu route
 Route::get('/foodmenu',[AdminController::class , 'foodmenu']);
 Route::post("/uploadfood",[AdminController::class , 'upload']);
+//delete foodmenu
+Route::get('/delete_menu/{id}',[AdminController::class , 'delete_menu']);
 
 //admin page display
 Route::get('/admin_page',[HomeController::class ,'testadminPage']);

@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index(){
-        return view('home');
+        $data = Food::all();
+        return view('home',compact("data"));
     }
 
     public function redirect(){
+        $data = Food::all();
         $usertype = auth()->user()->usertype;
         if($usertype == 1){
-            return view('adminhome');
+            return view('admin.adminhome');
         }else{
-            return view('home');
+            return view('home',compact('data'));
         }
     }
     public function testadminPage(){
