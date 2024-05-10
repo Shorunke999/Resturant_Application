@@ -30,6 +30,32 @@ class AdminController extends Controller
         $data = Food::all();
         return view('admin.foodmenu',compact('data'));
     }
+
+    public function update_view($id){
+        $data = Food::find($id);
+        return view('admin.updateview',compact("data"));
+    }
+    public function update($id,Request $request){
+         //data to be edited
+         $data = Food::where('id',$id)->first();
+        if($request->new_image){
+           //imagefile
+            $image = $request->file('image');
+            $imagename = time().'.'.'_'.$image->getClientOriginalName();
+            $imagepath = public_path('Foodmenuimages/'.$imagename);
+            Storage::disk('public')->put($imagepath,File::get($image));
+            Storage::delete($data->image);
+        }
+
+        $data->update([
+            'title' => $request->title,
+            'price' => $request->price,
+            'description' =>$request->description,
+            'image' => isset($imagepath) ? $imagepath : 'default_value'
+        ]);
+
+    }
+
     public function delete_menu($id){
         $data = Food::find($id);
         $data->delete();
@@ -39,12 +65,13 @@ class AdminController extends Controller
     public function upload(Request $request){
         $image = $request->file('image');
         $imagename = time().'.'.'_'.$image->getClientOriginalName();
-        Storage::disk('public')->put('/foodmenu/images/'.$imagename,File::get($image));
+        $imagepath = public_path('Foodmenuimages/'.$imagename);
+        Storage::disk('public')->put($imagepath,File::get($image));
        Food::create([
             'title'=>$request->title,
             'description' => $request->description,
             'price' =>$request->price,
-            'image' => $imagename
+            'image' => $imagepath
         ]);
         return redirect()->back();
     }

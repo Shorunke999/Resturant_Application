@@ -29,6 +29,7 @@ Route::get('/foodmenu',[AdminController::class , 'foodmenu']);
 Route::post("/uploadfood",[AdminController::class , 'upload']);
 //delete foodmenu
 Route::get('/delete_menu/{id}',[AdminController::class , 'delete_menu']);
+Route::get('/update_menu/{id}',[AdminController::class , 'update_view']); //update menu
 
 //admin page display
 Route::get('/admin_page',[HomeController::class ,'testadminPage']);

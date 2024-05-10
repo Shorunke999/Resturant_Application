@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <base href="/public">
    @include('admin.admincss');
   </head>
   <body>
@@ -47,7 +48,14 @@
                     <th style="padding:30px">
                         Image
                     </th>
+                    <th style="padding:30px">
+                        Action 1
+                    </th>
+                    <th style="padding:30px">
+                        Action 2
+                    </th>
                 </tr>
+
                 @foreach ($data as $data )
                     <tr align="center">
                         <td>
@@ -64,6 +72,9 @@
                         </td>
                         <td>
                             <a href="{{url('/delete_menu',$data->id)}}">Delete</a>
+                        </td>
+                        <td>
+                            <a href="{{url('/update_menu',$data->id)}}">Update</a>
                         </td>
                     </tr>
                 @endforeach
