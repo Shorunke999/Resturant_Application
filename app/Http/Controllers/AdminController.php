@@ -42,37 +42,39 @@ class AdminController extends Controller
         if($request->new_image){
            //imagefile
             $image = $request->file('image');
-            $imagename = time().'.'.'_'.$image->getClientOriginalName();
-            $imagepath = public_path('Foodmenuimages/'.$imagename);
-            Storage::disk('public')->put('Foodmenuimages/'.$imagename,File::get($image));
-            Storage::delete($prev_image);
+            $imagename = $image->getClientOriginalName();
+            $image->storeAs('public/images/',$imagename);
+            $imagepath = $imagename;
+            Storage::disk('public')->delete('images/'.$prev_image);
         }
 
         $data->update([
             'title' => $request->title,
             'price' => $request->price,
             'description' =>$request->description,
-            'image' => isset($imagepath) ? str_replace("\\", '/', $imagepath) : $prev_image
+            'image' => isset($imagepath) ? $imagepath : $prev_image
         ]);
-
+        return redirect()->route('foodmenu');
     }
 
     public function delete_menu($id){
         $data = Food::find($id);
+        $imagepath = $data->image;
         $data->delete();
+        Storage::disk('public')->delete('images/'.$imagepath);
         return redirect()->back();
     }
 
     public function upload(Request $request){
         $image = $request->file('image');
-        $imagename = time().'.'.'_'.$image->getClientOriginalName();
-        $imagepath = public_path('Foodmenuimages/'.$imagename);
-        Storage::disk('public')->put('Foodmenuimages/'.$imagename,File::get($image));
+        $imagename = $image->getClientOriginalName();
+        $image->storeAs('public/images/',$imagename);
+        $imagepath = $imagename;
        Food::create([
             'title'=>$request->title,
             'description' => $request->description,
             'price' =>$request->price,
-            'image' => str_replace("\\", '/', $imagepath)
+            'image' => $imagepath
         ]);
         return redirect()->back();
     }

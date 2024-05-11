@@ -25,7 +25,7 @@ Route::get('/delete/{id}',[AdminController::class , 'delete']);
 Route::get('/logout',[AdminController::class, 'logout']);
 
 //foodmenu route
-Route::get('/foodmenu',[AdminController::class , 'foodmenu']);
+Route::get('/foodmenu',[AdminController::class , 'foodmenu'])->name('foodmenu');
 Route::post("/uploadfood",[AdminController::class , 'upload']);
 //delete foodmenu
 Route::get('/delete_menu/{id}',[AdminController::class , 'delete_menu']);

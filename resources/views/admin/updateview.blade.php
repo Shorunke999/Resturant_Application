@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <base href="/public">
    @include('admin.admincss');
   </head>
   <body>
@@ -27,7 +28,7 @@
             </div>
             <div>
                 <label>New image (leave this if no new image )</label>
-                <input type="file" name="new_image"  required>
+                <input type="file" name="new_image">
             </div>
             <div>
                 <input type="submit" value="save" style="black">
@@ -37,6 +38,6 @@
 
     <!-- container-scroller -->
     <!-- plugins:js -->
-    @include("admin.adminscript");
+    @include("admin.adminscript")
   </body>
 </html>

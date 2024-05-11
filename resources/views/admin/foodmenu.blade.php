@@ -68,8 +68,7 @@
                             {{$data->description}}
                         </td>
                         <td>
-
-                            <img height="200" width="200" src="{{$data->image}}" alt="NAN">
+                            <img height="200" width="200" src="{{asset('storage/images/'.$data->image)}}" alt="NAN">
                         </td>
                         <td>
                             <a href="{{url('/delete_menu',$data->id)}}">Delete</a>
