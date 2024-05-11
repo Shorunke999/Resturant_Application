@@ -38,20 +38,21 @@ class AdminController extends Controller
     public function update($id,Request $request){
          //data to be edited
          $data = Food::where('id',$id)->first();
+         $prev_image = $data->image;
         if($request->new_image){
            //imagefile
             $image = $request->file('image');
             $imagename = time().'.'.'_'.$image->getClientOriginalName();
             $imagepath = public_path('Foodmenuimages/'.$imagename);
-            Storage::disk('public')->put($imagepath,File::get($image));
-            Storage::delete($data->image);
+            Storage::disk('public')->put('Foodmenuimages/'.$imagename,File::get($image));
+            Storage::delete($prev_image);
         }
 
         $data->update([
             'title' => $request->title,
             'price' => $request->price,
             'description' =>$request->description,
-            'image' => isset($imagepath) ? $imagepath : 'default_value'
+            'image' => isset($imagepath) ? str_replace("\\", '/', $imagepath) : $prev_image
         ]);
 
     }
@@ -66,12 +67,12 @@ class AdminController extends Controller
         $image = $request->file('image');
         $imagename = time().'.'.'_'.$image->getClientOriginalName();
         $imagepath = public_path('Foodmenuimages/'.$imagename);
-        Storage::disk('public')->put($imagepath,File::get($image));
+        Storage::disk('public')->put('Foodmenuimages/'.$imagename,File::get($image));
        Food::create([
             'title'=>$request->title,
             'description' => $request->description,
             'price' =>$request->price,
-            'image' => $imagepath
+            'image' => str_replace("\\", '/', $imagepath)
         ]);
         return redirect()->back();
     }
