@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Foodchef;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -14,7 +15,7 @@ class AdminController extends Controller
 
     public function user(){
         $data = User::all();
-        return view("admin.users",compact('data'));
+        return view("admin.users",compact("data"));
     }
     public function delete($id){
         $data = User::find($id);
@@ -95,5 +96,20 @@ class AdminController extends Controller
     public function viewreservation(){
         $data = Reservation::all();
         return view('admin.adminreservation',compact('data'));
+    }
+    public function viewchef(){
+        return view('admin.adminchef');
+    }
+    public function uploadchef(Request $request){
+        $chef_image = $request->file('image');
+        $chef_image_name = $chef_image ->getClientOriginalName();
+        $chef_image->storeAs('public/images/chefimages',$chef_image_name);
+
+        Foodchef::create([
+            'image' => $chef_image_name,
+            'name' => $request->name,
+            'speciality' => $request->speciality
+        ]);
+        return redirect()->back();
     }
 }

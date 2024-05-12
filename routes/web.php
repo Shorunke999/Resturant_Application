@@ -41,7 +41,11 @@ Route::get('/admin_page',[HomeController::class ,'testadminPage']);
 
 //reservation
 Route::post('/reservation',[AdminController::class, 'reservation']);
-Route::get('/viewreservation',[AdminController::class, 'viewreservation'])->name('reservation');
+Route::get('/viewreservation',[AdminController::class, 'viewreservation']);
+
+//chef section
+Route::get('/viewchef',[AdminController::class, 'viewchef']);
+Route::post('/uploadchef',[AdminController::class,'uploadchef']);
 
 
 Route::middleware([
