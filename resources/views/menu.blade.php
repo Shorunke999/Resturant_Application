@@ -14,7 +14,7 @@
             <div class="owl-menu-item owl-carousel">
                 @foreach ($data as $d)
                     <div class="item">
-                        <div style="background-image: url('{{asset("storage/images".$d->image)}}')" class='card'>
+                        <div style="background-image: url('{{asset($d->image)}}')" class='card'>
                             <div class="price">
                                 <h6>
                                     {{$d->price}}

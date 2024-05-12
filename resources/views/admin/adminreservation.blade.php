@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-   @include('admin.admincss')
+   @include('admin.admincss');
   </head>
   <body>
     <div class="container-scroller">
-        @include("admin.navbar")
+        @include("admin.navbar");
     </div>
 
     <!-- container-scroller -->
     <!-- plugins:js -->
-    @include("admin.adminscript")
+    @include("admin.adminscript");
   </body>
 </html>

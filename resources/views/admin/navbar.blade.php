@@ -202,7 +202,7 @@
             </a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <a class="nav-link" href="{{route('reservation')}}" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
                 <span class="menu-title">Reservations</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Food;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
@@ -77,5 +78,22 @@ class AdminController extends Controller
             'image' => $imagepath
         ]);
         return redirect()->back();
+    }
+
+    public function reservation(Request $request){
+        Reservation::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'guest' =>$request->guest,
+            'message' => $request->message,
+            'date' =>$request->date,
+            'time' =>$request->time
+        ]);
+        return redirect()->route('home');
+    }
+    public function viewreservation(){
+        $data = Reservation::all();
+        return view('admin.adminreservation',compact('data'));
     }
 }
