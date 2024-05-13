@@ -98,7 +98,8 @@ class AdminController extends Controller
         return view('admin.adminreservation',compact('data'));
     }
     public function viewchef(){
-        return view('admin.adminchef');
+        $data = Foodchef::all();
+        return view('admin.adminchef',compact('data'));
     }
     public function uploadchef(Request $request){
         $chef_image = $request->file('image');
@@ -106,10 +107,41 @@ class AdminController extends Controller
         $chef_image->storeAs('public/images/chefimages',$chef_image_name);
 
         Foodchef::create([
-            'image' => $chef_image_name,
+            'image' => 'storage/images/chefimages/'.$chef_image_name,
             'name' => $request->name,
             'speciality' => $request->speciality
         ]);
+        return redirect()->back();
+    }
+    public function updatechef($id){
+        $data = Foodchef::find($id);
+        return view('admin.updatechef',compact('data'));
+    }
+    public function updatechefdata($id,Request $request){
+          //data to be edited
+          $data = Foodchef::where('id',$id)->first();
+          $prev_image = $data->image;
+         if($request->new_image){
+            //imagefile
+             $chef_image = $request->file('new_image');
+             $chef_image_name = $chef_image->getClientOriginalName();
+             $chef_image->storeAs('public/images/chefimages',$chef_image_name);
+             $chef_image_path = 'storage/images/chefimages/'.$chef_image_name;
+             Storage::disk('public')->delete('images/chefimages/'.$prev_image);
+         }
+
+         $data->update([
+             'name' => $request->name,
+             'speciality' => $request->speciality,
+             'description' =>$request->description,
+             'image' => isset($chef_image_path) ? $chef_image_path : $prev_image
+         ]);
+         return redirect()->route('viewchef');
+
+    }
+    public function deletechef($id){
+        Foodchef::find($id)
+        ->delete();
         return redirect()->back();
     }
 }

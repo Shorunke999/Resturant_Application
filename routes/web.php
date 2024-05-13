@@ -44,8 +44,11 @@ Route::post('/reservation',[AdminController::class, 'reservation']);
 Route::get('/viewreservation',[AdminController::class, 'viewreservation']);
 
 //chef section
-Route::get('/viewchef',[AdminController::class, 'viewchef']);
+Route::get('/viewchef',[AdminController::class, 'viewchef'])->name('viewchef');
 Route::post('/uploadchef',[AdminController::class,'uploadchef']);
+Route::get('/delete_chef/{id}',[AdminController::class,'deletechef']);
+Route::get('/update_chef/{id}',[AdminController::class,'updatechef']);
+Route::post('/updatedchefdata/{id}',[AdminController::class,'updatechefdata']);
 
 
 Route::middleware([
@@ -54,4 +57,5 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard',[ HomeController::class , 'redirect'])->name('dashboard');
+    Route::post('/addcart/{id}',[ HomeController::class , 'addcart']);
 });

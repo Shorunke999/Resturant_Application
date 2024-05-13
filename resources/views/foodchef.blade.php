@@ -8,8 +8,8 @@
                 </div>
             </div>
         </div>
-        @foreach($data2 as $data2)
         <div class="row">
+            @foreach($data2 as $data2)
             <div class="col-lg-4">
                 <div class="chef-item">
                     <div class="thumb">
@@ -19,16 +19,15 @@
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         </ul>
-                        <img src="{{asset($data2->image)}}" alt="Chef #1">
-                        {{asset('images/chefimages/'.$data2->image)}}
+                        <img height="200" width="200" src="{{asset($data2->image)}}" alt="Chef #1">
                     </div>
                     <div class="down-content">
                         <h4>{{$data2->name}}</h4>
                         <span>{{$data2->speciality}}</span>
                     </div>
                 </div>
+                @endforeach
             </div>
-        @endforeach
         </div>
     </div>
 </section>

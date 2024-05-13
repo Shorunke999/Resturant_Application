@@ -24,6 +24,24 @@
                 <input type="submit" value="save">
             </div>
         </form>
+        <table>
+            <tr>
+                <th style="padding: 30px">Chef Name</th>
+                <th style="padding: 30px">Speciality</th>
+                <th style="padding: 30px">Image</th>
+                <th style="padding: 30px">Action</th>
+                <th style="padding: 30px">Action</th>
+            </tr>
+            @foreach ($data as $data )
+                <tr>
+                    <td style="padding: 30px">{{$data->name}}</td>
+                    <td style="padding: 30px">{{$data->speciality}}</td>
+                    <td style="padding: 30px"><img width="100" height="100" src="{{asset($data->image)}}" alt="NAN"></td>
+                    <td style="padding: 30px"><a href="{{url('/update_chef',$data->id)}}">Update</a></td>
+                    <td style="padding: 30px"><a href="{{url('/delete_chef',$data->id)}}">Delete</a></td>
+                </tr>
+            @endforeach
+        </table>
     </div>
 
     <!-- container-scroller -->
