@@ -16,6 +16,9 @@ use App\Http\Controllers\AdminController;
 
 Route::get('/',[HomeController::class , 'index'])->name('home');
 
+
+
+
 //display users in db to admin page
 Route::get('/users',[AdminController::class , 'user']);
 
@@ -57,5 +60,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard',[ HomeController::class , 'redirect'])->name('dashboard');
+    //cart section
     Route::post('/addcart/{id}',[ HomeController::class , 'addcart']);
+    Route::get('/showcart',[HomeController::class , 'showcart']);
 });
